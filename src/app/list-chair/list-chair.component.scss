@@ -1,0 +1,51 @@
+
+.header{
+    padding: 0 auto;
+    text-align: center;
+}
+
+@mixin Top ($color) {
+
+    color: $color;
+    text-align: center;
+    padding: 1rem;
+    margin: 0 5rem;
+
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+}
+
+.taiXe{
+    @include Top(white);
+    background-color: #a142f5;
+    display: block;
+    
+}
+
+.danhSachDaDat{
+    @include Top(white);
+    background-color: brown;
+}
+
+.btnBooking{
+    padding: 1rem 10rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+}
+
+.item{
+    vertical-align:middle!important;
+}
+
+.tongTien{
+    background-color: cadetblue;
+    padding: 1rem 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    text-align: center;
+    span{
+        padding-right: 1rem;
+    }
+}

@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="row mb-5">
+        <div class="col-md-6 header">
+            <div class="taiXe">Tài xế</div>
+            <ng-container *ngFor="let item of mangGhe; let index=index">
+                <app-chair [chair]="item" (eventChoice)="choiceChair($event)">
+                </app-chair>
+                <br *ngIf="(index+1)%4===0" />
+            </ng-container>
+            <button class="btn btn-success mt-3 btnBooking" (click)="handleBooking()">Đặt ghế</button>
+        </div>
+        <div class=" col-md-6">
+            <p class="danhSachDaDat">Danh sách ghế đã đặt</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Ghế</th>
+                        <th scope="col">Giá tiền</th>
+                        <th scope="col">Trạng Thái</th>
+                    </tr>
+                </thead>
+                <tbody #tongTien>
+                    <tr *ngFor="let item of mangGhe; let index = index">
+                        <ng-container *ngIf="item.TrangThai===true">
+                            <td class="item" scope="row">{{item.TenGhe}}</td>
+                            <td class="item">{{item.Gia}}</td>
+                            <td class="item" #cancel><button (click)="cancelBooking(index)"
+                                    class="btn btn-outline-danger btn-sm">Hủy ghế</button></td>
+                        </ng-container>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tongTien"><span> Tổng tiền:</span> {{toTal}}</div>
+        </div>
+    </div>
+</div>
